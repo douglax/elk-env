@@ -1,0 +1,8 @@
+hosts: [
+  { host_ip: "10.100.198.200", host_name: "deploy"},
+  { host_ip: "10.100.198.201", host_name: "es"},
+]
+
+obsolete_services:
+  - puppet
+  - chef-client

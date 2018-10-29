@@ -1,0 +1,62 @@
+- name: Java is present
+  yum: 
+    name: java-1.8.0-openjdk 
+    state: present
+
+- name: Create elastic folder
+  file:
+    path: /opt/elastic
+    state: directory
+    owner: vagrant
+    recurse: yes
+
+- name: Download ES 
+  get_url:
+    url: "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-{{ es_version }}.tar.gz"
+    dest: "/opt/elastic"
+
+- name: Download kibana 
+  get_url:
+    url: "https://artifacts.elastic.co/downloads/kibana/kibana-{{ es_version }}-linux-x86_64.tar.gz"
+    dest: "/opt/elastic"
+
+- name: Download Metricbeat 
+  get_url:
+    url: "https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-6.4.2-linux-x86_64.tar.gz"
+    dest: "/opt/elastic"
+
+- name: Download Logstash 
+  get_url:
+    url: "https://artifacts.elastic.co/downloads/logstash/logstash-6.4.2.tar.gz"
+    dest: "/opt/elastic"
+   
+- name: Uncompress ElasticSearch
+  unarchive:
+    src: "/opt/elastic/elasticsearch-{{ es_version }}.tar.gz" 
+    dest: "/opt/elastic"
+    remote_src: yes
+
+- name: Uncompress Kibana 
+  unarchive:
+    src: "/opt/elastic/kibana-{{ es_version }}-linux-x86_64.tar.gz" 
+    dest: "/opt/elastic"
+    remote_src: yes
+
+- name: Uncompress Metricbeat 
+  unarchive:
+    src: "/opt/elastic/metricbeat-{{ es_version }}-linux-x86_64.tar.gz" 
+    dest: "/opt/elastic"
+    remote_src: yes
+
+- name: Uncompress Logstash 
+  unarchive:
+    src: "/opt/elastic/logstash-{{ es_version }}.tar.gz" 
+    dest: "/opt/elastic"
+    remote_src: yes
+
+- name: Create elastic folder
+  file:
+    path: /opt/elastic
+    state: directory 
+    owner: vagrant
+    recurse: yes

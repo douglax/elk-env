@@ -1,0 +1,2 @@
+ip: "{{ facter_ipaddress_eth1 }}"
+agent_user: vagrant
