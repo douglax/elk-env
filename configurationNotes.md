@@ -31,6 +31,8 @@ vagrant ssh es-cluster-node-1
 ansible-playbook /vagrant/ansible
 ```
 
+Once deploy machine has finished, you can shut it down to save host resources
+
 ```
 vagrant halt deploy
 ```
@@ -47,7 +49,31 @@ Edit jvm.options
 Change heap memory to half of the available memory in vagrant machine (from 1g to 512M)
 
 -Xms512m
+
 -Xmx512m
+
+Modify /opt/elastic/elasticsearch.yml
+
+```
+**** ToDo  changes here  ****
+```
+
+Edit /etc/security/limits.conf as sudo
+
+```
+#<domain>    <type>   <item>   <value>
+vagrant    soft    nofile   65536
+vagrant    hard    nofile   65536
+vagrant    soft    nproc    4096
+vagrant    hard    nproc    4096
+```
+
+Start elasticsearch again
+
+/opt/elastic/elasticsearch-6.4.2/bin/elasticsearch
+
+
+
 
 
 
