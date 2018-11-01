@@ -73,7 +73,7 @@ Start elasticsearch again
 /opt/elastic/elasticsearch-6.4.2/bin/elasticsearch
 
 
-
+sudo sysctl -w vm.max_map_count=262144
 
 
 
