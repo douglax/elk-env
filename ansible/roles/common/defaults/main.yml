@@ -1,6 +1,8 @@
 hosts: [
   { host_ip: "10.100.198.200", host_name: "deploy"},
   { host_ip: "10.100.198.201", host_name: "es"},
+  { host_ip: "10.100.192.201", host_name: "es-cluster-node-1"},
+  { host_ip: "10.100.192.202", host_name: "es-cluster-node-2"},
 ]
 
 obsolete_services:

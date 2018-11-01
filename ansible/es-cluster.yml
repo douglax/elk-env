@@ -1,0 +1,6 @@
+- hosts: es-cluster
+  remote_user: vagrant
+  serial: 1 
+  roles:
+    - common
+    - elasticsearch 

@@ -27,6 +27,17 @@ Vagrant.configure("2") do |config|
       v.memory = 1024
     end
   end
+  (1..2).each do |i|
+    config.vm.define "es-cluster-node-#{i}" do |d|
+      d.vm.box = "bento/centos-7.5"
+      d.vm.hostname = "es-cluster-node-#{i}"
+      d.vm.network "private_network", ip: "10.100.192.20#{i}"
+      d.vm.provider "virtualbox" do |v|
+        v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]     
+        v.memory = 1024
+      end
+    end
+  end
   if Vagrant.has_plugin?("vagrant-cachier")
     config.cache.scope = :box
   end
