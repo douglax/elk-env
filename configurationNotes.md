@@ -54,8 +54,10 @@ Change heap memory to half of the available memory in vagrant machine (from 1g t
 
 Modify /opt/elastic/elasticsearch.yml
 
-```
-**** ToDo  changes here  ****
+```yaml
+cluster.name: es-cluster
+#network host to bind socket to visible IP
+network.host: "_eth1_"
 ```
 
 Edit /etc/security/limits.conf as sudo
